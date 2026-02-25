@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Student Research Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <header>
+      <h1>AI Student Research Assistant</h1>
+      <p>Generate a complete research report, PPT outline, viva questions, and tool suggestions.</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Start New Research</h2>
+        <form id="research-form">
+          <div class="grid">
+            <label>
+              Student Name
+              <input type="text" id="student_name" required />
+            </label>
+            <label>
+              Student Email
+              <input type="email" id="student_email" required />
+            </label>
+            <label>
+              Institution
+              <input type="text" id="institution" />
+            </label>
+            <label>
+              Research Topic
+              <input type="text" id="topic" required />
+            </label>
+          </div>
+          <label>
+            Research Query / Problem Statement
+            <textarea id="query" rows="4" required></textarea>
+          </label>
+          <button type="submit">Generate Deep Research</button>
+        </form>
+      </section>
+
+      <section class="card" id="history-card">
+        <h2>Research History</h2>
+        <form id="history-form" class="inline-form">
+          <input type="number" id="history-student-id" placeholder="Student ID" required />
+          <button type="submit">Load History</button>
+        </form>
+        <ul id="history-list"></ul>
+      </section>
+
+      <section class="card" id="report-section">
+        <h2>Generated Research Report</h2>
+        <div id="report-output">
+          <p>No report generated yet.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
